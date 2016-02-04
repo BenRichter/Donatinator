@@ -1,3 +1,49 @@
-<App Theme="Basic">
-</App>
+<App Theme="Native" Background="#fefefe">
+    <JavaScript File="assets/js/script.js" />
 
+    <!--<Image StretchMode="Fill" File="assets/gfx/logo_white.png" />-->
+
+    <!-- Overlay -->
+    <!--<Panel>-->
+        <!--<Text TextAlignment="Center" Background="#FDFFFF" Margin="15" Opacity="0.9" Alignment="VerticalCenter" LineSpacing="1" Padding="15" Height="300">-->
+            <!--Hallo Welt.-->
+
+            <!--Lorem Ipsum Dolor sit amet.-->
+            <!--<Button Text="Tap me!" Width="300" />-->
+            <!--<DropShadow Color="#000" />-->
+        <!--</Text>-->
+    <!--</Panel>-->
+
+    <StackPanel Orientation="Horizontal" ItemSpacing="20">
+        <Text>Elemensdt 1</Text>
+        <Text>Element 2</Text>
+        <Text>Element Drei</Text>
+
+        <Panel Height="100" Background="Red"/>
+        <Panel Height="100" Background="Green"/>
+        <Panel Height="100" Background="Blue"/>
+    </StackPanel>
+
+
+
+    <!--<Video ux:Name="video" Dock="Fill" File="assets/vid/lorem.mp4" StretchMode="UniformToFill" Margin="15" Padding="15" Opacity="0.8" Background="#FF0320" Alignment="Default">-->
+        <!--<ProgressAnimation>-->
+            <!--<Change progressBar.Width="100" />-->
+        <!--</ProgressAnimation>-->
+    <!--<DropShadow Color="#141414" /></Video>-->
+    <!--<Rectangle ux:Name="progressBar" Dock="Bottom" Fill="#f00" Width="0%" Height="10" />-->
+    <!--<Grid Dock="Bottom" ColumnCount="2" RowCount="1">-->
+        <!--<Button Text="Play">-->
+            <!--<Clicked>-->
+                <!--<Resume Target="video" />-->
+            <!--</Clicked>-->
+        <!--</Button>-->
+        <!--<Button>-->
+            <!--<Clicked>-->
+                <!--<Pause Target="video" />-->
+            <!--</Clicked>-->
+        <!--</Button>-->
+    <!--</Grid>-->
+
+
+</App>
