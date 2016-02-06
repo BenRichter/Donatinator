@@ -25,6 +25,8 @@
         "Uno.Geometry"
   ],
   "Includes": [
-    "*"
+    "assets/*",
+    "devices.json:File",
+    "MainView.ux:UXFile",
   ]
 }

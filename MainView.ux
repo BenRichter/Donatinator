@@ -1,49 +1,106 @@
-<App Theme="Native" Background="#fefefe">
-    <JavaScript File="assets/js/script.js" />
+<App Theme="Basic" Background="#eee">
+    <DockPanel>
+        <!-- NAvigation Header -->
+        <Style>
+            <Button ux:InheritStyle="false" ClipToBounds="False" Margin="0,0,0,4" Background="#2ecc71" Name="self">
+                <Fuse.BasicTheme.ButtonText TextColor="#FFF" Font="RobotoMedium" Value="{Property self.Text}" TextAlignment="Center" Opacity="1" />
+            </Button>
+        </Style>
+        <StackPanel Dock="Top" Background="#2ecc71">
+            <StatusBarBackground />
+            <iOS.StatusBarConfig Style="Light" />
+            <MultiLayoutPanel Height="50" ux:Name="tabBar">
+                <GridLayout ColumnCount="2" Rows="1*" />
+                <Panel ux:Name="tab_quest">
+                    <Placeholder>
+                        <Rectangle ux:Name="indicator" Alignment="Bottom" Height="4" Fill="#27ae60">
+                            <LayoutAnimation>
+                                <Move RelativeTo="LayoutChange" X="1" Duration="0.4" Easing="BackIn" />
+                            </LayoutAnimation>
+                        </Rectangle>
+                    </Placeholder>
+                    <Button Text="Aufgaben">
+                        <Clicked>
+                            <Set navigation.Active="page_quest" />
+                        </Clicked>
+                    </Button>
+                </Panel>
+                <Panel ux:Name="tab_stats">
+                    <Placeholder Target="indicator" />
+                    <Button Text="Profil">
+                        <Clicked>
+                            <Set navigation.Active="page_stats" />
+                        </Clicked>
+                    </Button>
+                </Panel>
+            </MultiLayoutPanel>
+        </StackPanel>
+
+        <!-- Pages -->
+        <PageControl ux:Name="navigation">
+            <Text ux:Class="DescriptionText" FontSize="15" Padding="15, 10, 15, 10" Alignment="Top" />
+
+            <!-- Page 1 : Aufgaben -->
+            <Page ux:Name="page_quest" Background="#ecf0f1">
+                <WhileActive Threshold="0.5">
+                    <Set tabBar.LayoutElement="tab_quest" />
+                </WhileActive>
+                <DescriptionText>Welcome to Page 1</DescriptionText>
+
+
+                <Button Text="Tap me!" Opacity="1" Alignment="Bottom" Margin="15, 10, 15, 10">
+                    <DropShadow Color="#606060" />
+                </Button>
+            </Page>
+
+            <!-- Page 2 : Profil -->
+            <Page ux:Name="page_stats" Background="#ecf0f1">
+                <WhileActive Threshold="0.5">
+                    <Set tabBar.LayoutElement="tab_stats" />
+                </WhileActive>
+                <DescriptionText>Welcome to Page 2</DescriptionText>
+
+
+
+                <Video ux:Name="video" Dock="Fill" File="assets/vid/lorem.mp4" StretchMode="UniformToFill" Opacity="1" Background="#FFF" Alignment="Top">
+                    <ProgressAnimation>
+                        <Change progressBar.Width="100" />
+                    </ProgressAnimation>
+                    <DropShadow Color="#141414" />
+                </Video>
+                <Rectangle ux:Name="progressBar" Dock="Bottom" Fill="#f00" Width="0%" Height="10" />
+                <Grid Dock="Bottom" ColumnCount="2" RowCount="1">
+                    <Button Text="Play">
+                        <Clicked>
+                            <Resume Target="video" />
+                        </Clicked>
+                    </Button>
+                    <Button>
+                        <Clicked>
+                            <Pause Target="video" />
+                        </Clicked>
+                    </Button>
+                </Grid>
+
+            </Page>
+        </PageControl>
+    </DockPanel>
+
+
+
 
     <!--<Image StretchMode="Fill" File="assets/gfx/logo_white.png" />-->
 
     <!-- Overlay -->
     <!--<Panel>-->
-        <!--<Text TextAlignment="Center" Background="#FDFFFF" Margin="15" Opacity="0.9" Alignment="VerticalCenter" LineSpacing="1" Padding="15" Height="300">-->
-            <!--Hallo Welt.-->
+    <!--<Text TextAlignment="Center" Background="#FDFFFF" Margin="15" Opacity="0.9" Alignment="VerticalCenter" LineSpacing="1" Padding="15" Height="300">-->
+    <!--Hallo Welt.-->
 
-            <!--Lorem Ipsum Dolor sit amet.-->
-            <!--<Button Text="Tap me!" Width="300" />-->
-            <!--<DropShadow Color="#000" />-->
-        <!--</Text>-->
+    <!--Lorem Ipsum Dolor sit amet.-->
+    <!--<Button Text="Tap me!" Width="300" />-->
+    <!--<DropShadow Color="#000" />-->
+    <!--</Text>-->
     <!--</Panel>-->
 
-    <StackPanel Orientation="Horizontal" ItemSpacing="20">
-        <Text>Elemensdt 1</Text>
-        <Text>Element 2</Text>
-        <Text>Element Drei</Text>
-
-        <Panel Height="100" Background="Red"/>
-        <Panel Height="100" Background="Green"/>
-        <Panel Height="100" Background="Blue"/>
-    </StackPanel>
-
-
-
-    <!--<Video ux:Name="video" Dock="Fill" File="assets/vid/lorem.mp4" StretchMode="UniformToFill" Margin="15" Padding="15" Opacity="0.8" Background="#FF0320" Alignment="Default">-->
-        <!--<ProgressAnimation>-->
-            <!--<Change progressBar.Width="100" />-->
-        <!--</ProgressAnimation>-->
-    <!--<DropShadow Color="#141414" /></Video>-->
-    <!--<Rectangle ux:Name="progressBar" Dock="Bottom" Fill="#f00" Width="0%" Height="10" />-->
-    <!--<Grid Dock="Bottom" ColumnCount="2" RowCount="1">-->
-        <!--<Button Text="Play">-->
-            <!--<Clicked>-->
-                <!--<Resume Target="video" />-->
-            <!--</Clicked>-->
-        <!--</Button>-->
-        <!--<Button>-->
-            <!--<Clicked>-->
-                <!--<Pause Target="video" />-->
-            <!--</Clicked>-->
-        <!--</Button>-->
-    <!--</Grid>-->
-
-
+    <JavaScript File="assets/js/script.js" />
 </App>
